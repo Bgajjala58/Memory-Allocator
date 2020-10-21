@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="logger_8h" kind="file" language="C++">
+    <compoundname>logger.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includedby refid="allocator_8c" local="yes">allocator.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>logger.h</label>
+        <link refid="logger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>unistd.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="logger_8h_1aa385268d3ec7b4d3ecceb7c787171bf0" prot="public" static="no">
+        <name>LOGGER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If LOGGER is not set, it will be enabled by default. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="19" column="9" bodyfile="logger.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="logger_8h_1aa0d3fd3f5bc14b2d98c4ee59e8029d11" prot="public" static="no">
+        <name>LOGGER_COLOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>LOGGER_COLOR determines whether debug output is colorized. It is enabled by default. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="27" column="9" bodyfile="logger.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="logger_8h_1a9c0a761d7fcefcef9849ce0e3900d962" prot="public" static="no">
+        <name>LOGGER_COLOR_RED</name>
+        <initializer>&quot;\033[0;31m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="31" column="9" bodyfile="logger.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="logger_8h_1a8dd5be6eedc6989bdfe0c3d75715600f" prot="public" static="no">
+        <name>LOGGER_COLOR_BLUE</name>
+        <initializer>&quot;\033[1;34m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="32" column="9" bodyfile="logger.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="logger_8h_1a011fa8043c2689f76dad72c2c6eb31b6" prot="public" static="no">
+        <name>LOGGER_COLOR_RESET</name>
+        <initializer>&quot;\033[0m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="33" column="9" bodyfile="logger.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="logger_8h_1ac60a33fb6244dfed75a5aaab504b8968" prot="public" static="no">
+        <name>LOGP</name>
+        <param><defname>str</defname></param>
+        <initializer>    do { \
+        if (<ref refid="logger_8h_1aa385268d3ec7b4d3ecceb7c787171bf0" kindref="member">LOGGER</ref>) { \
+            if (<ref refid="logger_8h_1aa0d3fd3f5bc14b2d98c4ee59e8029d11" kindref="member">LOGGER_COLOR</ref>) { \
+                if (isatty(STDERR_FILENO)) { \
+                    fprintf(stderr, &quot;%s%s%s:%d:%s%s()%s: %s&quot;, \
+                            LOGGER_COLOR_RED, __FILE__, LOGGER_COLOR_RESET, \
+                            __LINE__, \
+                            LOGGER_COLOR_BLUE, __func__, LOGGER_COLOR_RESET, \
+                            str); \
+                    break; \
+                } \
+                fprintf(stderr, &quot;%s:%d:%s(): %s&quot;, \
+                        __FILE__, __LINE__, __func__, str); \
+            } \
+        } \
+    } while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints an unformatted log message (single string).</para>
+<para>Example Usage: LOGP(&quot;Hello world!&quot;); </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="42" column="9" bodyfile="logger.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="logger_8h_1a388edf12256bf73c3a8ee9734c3bd841" prot="public" static="no">
+        <name>LOG</name>
+        <param><defname>fmt</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    do { \
+        if (<ref refid="logger_8h_1aa385268d3ec7b4d3ecceb7c787171bf0" kindref="member">LOGGER</ref>) { \
+            if (<ref refid="logger_8h_1aa0d3fd3f5bc14b2d98c4ee59e8029d11" kindref="member">LOGGER_COLOR</ref>) { \
+                if (isatty(STDERR_FILENO)) { \
+                    fprintf(stderr, &quot;%s%s%s:%d:%s%s()%s: &quot; fmt, \
+                            LOGGER_COLOR_RED, __FILE__, LOGGER_COLOR_RESET, \
+                            __LINE__, \
+                            LOGGER_COLOR_BLUE, __func__, LOGGER_COLOR_RESET, \
+                            __VA_ARGS__); \
+                    break; \
+                } \
+                fprintf(stderr, &quot;%s:%d:%s(): &quot; fmt, __FILE__, \
+                        __LINE__, __func__, __VA_ARGS__); \
+            } \
+        } \
+    } while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints a formatted log message.</para>
+<para>Example Usage: LOG(&quot;Hello %s, your lucky number is %d\n&quot;, &quot;World&quot;, 42); </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logger.h" line="66" column="9" bodyfile="logger.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Helps facilitate debugging by providing basic logging functionality. Unlike printf-style debugging, the log messages can be enabled/disabled by changing the value of LOGGER. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#ifndef<sp/>_LOGGER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_LOGGER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor">#ifndef<sp/>LOGGER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="logger_8h_1aa385268d3ec7b4d3ecceb7c787171bf0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor">#ifndef<sp/>LOGGER_COLOR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="logger_8h_1aa0d3fd3f5bc14b2d98c4ee59e8029d11" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER_COLOR<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>LOGGER_COLOR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER_COLOR_RED<sp/><sp/><sp/>&quot;\033[0;31m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER_COLOR_BLUE<sp/><sp/>&quot;\033[1;34m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER_COLOR_RESET<sp/>&quot;\033[0m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="logger_8h_1ac60a33fb6244dfed75a5aaab504b8968" refkind="member"><highlight class="preprocessor">#define<sp/>LOGP(str)<sp/>\</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(LOGGER)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(LOGGER_COLOR)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(isatty(STDERR_FILENO))<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/>&quot;%s%s%s:%d:%s%s()%s:<sp/>%s&quot;,<sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOGGER_COLOR_RED,<sp/>__FILE__,<sp/>LOGGER_COLOR_RESET,<sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__LINE__,<sp/>\</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOGGER_COLOR_BLUE,<sp/>__func__,<sp/>LOGGER_COLOR_RESET,<sp/>\</highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>str);<sp/>\</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;<sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/>&quot;%s:%d:%s():<sp/>%s&quot;,<sp/>\</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__FILE__,<sp/>__LINE__,<sp/>__func__,<sp/>str);<sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="logger_8h_1a388edf12256bf73c3a8ee9734c3bd841" refkind="member"><highlight class="preprocessor">#define<sp/>LOG(fmt,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(LOGGER)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(LOGGER_COLOR)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(isatty(STDERR_FILENO))<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/>&quot;%s%s%s:%d:%s%s()%s:<sp/>&quot;<sp/>fmt,<sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOGGER_COLOR_RED,<sp/>__FILE__,<sp/>LOGGER_COLOR_RESET,<sp/>\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__LINE__,<sp/>\</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOGGER_COLOR_BLUE,<sp/>__func__,<sp/>LOGGER_COLOR_RESET,<sp/>\</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;<sp/>\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/>&quot;%s:%d:%s():<sp/>&quot;<sp/>fmt,<sp/>__FILE__,<sp/>\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__LINE__,<sp/>__func__,<sp/>__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="82"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="logger.h"/>
+  </compounddef>
+</doxygen>

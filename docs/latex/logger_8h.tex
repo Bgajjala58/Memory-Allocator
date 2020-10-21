@@ -1,0 +1,99 @@
+\hypertarget{logger_8h}{}\doxysection{logger.\+h File Reference}
+\label{logger_8h}\index{logger.h@{logger.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logger_8h_aa385268d3ec7b4d3ecceb7c787171bf0}{L\+O\+G\+G\+ER}}~1
+\item 
+\#define \mbox{\hyperlink{logger_8h_aa0d3fd3f5bc14b2d98c4ee59e8029d11}{L\+O\+G\+G\+E\+R\+\_\+\+C\+O\+L\+OR}}~1
+\item 
+\mbox{\Hypertarget{logger_8h_a9c0a761d7fcefcef9849ce0e3900d962}\label{logger_8h_a9c0a761d7fcefcef9849ce0e3900d962}} 
+\#define {\bfseries L\+O\+G\+G\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+ED}~\char`\"{}\textbackslash{}033\mbox{[}0;31m\char`\"{}
+\item 
+\mbox{\Hypertarget{logger_8h_a8dd5be6eedc6989bdfe0c3d75715600f}\label{logger_8h_a8dd5be6eedc6989bdfe0c3d75715600f}} 
+\#define {\bfseries L\+O\+G\+G\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+B\+L\+UE}~\char`\"{}\textbackslash{}033\mbox{[}1;34m\char`\"{}
+\item 
+\mbox{\Hypertarget{logger_8h_a011fa8043c2689f76dad72c2c6eb31b6}\label{logger_8h_a011fa8043c2689f76dad72c2c6eb31b6}} 
+\#define {\bfseries L\+O\+G\+G\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+E\+S\+ET}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{logger_8h_ac60a33fb6244dfed75a5aaab504b8968}{L\+O\+GP}}(str)
+\item 
+\#define \mbox{\hyperlink{logger_8h_a388edf12256bf73c3a8ee9734c3bd841}{L\+OG}}(fmt, ...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helps facilitate debugging by providing basic logging functionality. Unlike printf-\/style debugging, the log messages can be enabled/disabled by changing the value of L\+O\+G\+G\+ER. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{logger_8h_a388edf12256bf73c3a8ee9734c3bd841}\label{logger_8h_a388edf12256bf73c3a8ee9734c3bd841}} 
+\index{logger.h@{logger.h}!LOG@{LOG}}
+\index{LOG@{LOG}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG}{LOG}}
+{\footnotesize\ttfamily \#define L\+OG(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (\mbox{\hyperlink{logger_8h_aa385268d3ec7b4d3ecceb7c787171bf0}{LOGGER}}) \{ \(\backslash\)}
+\DoxyCodeLine{            if (\mbox{\hyperlink{logger_8h_aa0d3fd3f5bc14b2d98c4ee59e8029d11}{LOGGER\_COLOR}}) \{ \(\backslash\)}
+\DoxyCodeLine{                if (isatty(STDERR\_FILENO)) \{ \(\backslash\)}
+\DoxyCodeLine{                    fprintf(stderr, \textcolor{stringliteral}{"\%s\%s\%s:\%d:\%s\%s()\%s: "} fmt, \(\backslash\)}
+\DoxyCodeLine{                            LOGGER\_COLOR\_RED, \_\_FILE\_\_, LOGGER\_COLOR\_RESET, \(\backslash\)}
+\DoxyCodeLine{                            \_\_LINE\_\_, \(\backslash\)}
+\DoxyCodeLine{                            LOGGER\_COLOR\_BLUE, \_\_func\_\_, LOGGER\_COLOR\_RESET, \(\backslash\)}
+\DoxyCodeLine{                            \_\_VA\_ARGS\_\_); \(\backslash\)}
+\DoxyCodeLine{                    break; \(\backslash\)}
+\DoxyCodeLine{                \} \(\backslash\)}
+\DoxyCodeLine{                fprintf(stderr, \textcolor{stringliteral}{"\%s:\%d:\%s(): "} fmt, \_\_FILE\_\_, \(\backslash\)}
+\DoxyCodeLine{                        \_\_LINE\_\_, \_\_func\_\_, \_\_VA\_ARGS\_\_); \(\backslash\)}
+\DoxyCodeLine{            \} \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+Prints a formatted log message.
+
+Example Usage\+: L\+OG(\char`\"{}\+Hello \%s, your lucky number is \%d\textbackslash{}n\char`\"{}, \char`\"{}\+World\char`\"{}, 42); \mbox{\Hypertarget{logger_8h_aa385268d3ec7b4d3ecceb7c787171bf0}\label{logger_8h_aa385268d3ec7b4d3ecceb7c787171bf0}} 
+\index{logger.h@{logger.h}!LOGGER@{LOGGER}}
+\index{LOGGER@{LOGGER}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOGGER}{LOGGER}}
+{\footnotesize\ttfamily \#define L\+O\+G\+G\+ER~1}
+
+If L\+O\+G\+G\+ER is not set, it will be enabled by default. \mbox{\Hypertarget{logger_8h_aa0d3fd3f5bc14b2d98c4ee59e8029d11}\label{logger_8h_aa0d3fd3f5bc14b2d98c4ee59e8029d11}} 
+\index{logger.h@{logger.h}!LOGGER\_COLOR@{LOGGER\_COLOR}}
+\index{LOGGER\_COLOR@{LOGGER\_COLOR}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOGGER\_COLOR}{LOGGER\_COLOR}}
+{\footnotesize\ttfamily \#define L\+O\+G\+G\+E\+R\+\_\+\+C\+O\+L\+OR~1}
+
+L\+O\+G\+G\+E\+R\+\_\+\+C\+O\+L\+OR determines whether debug output is colorized. It is enabled by default. \mbox{\Hypertarget{logger_8h_ac60a33fb6244dfed75a5aaab504b8968}\label{logger_8h_ac60a33fb6244dfed75a5aaab504b8968}} 
+\index{logger.h@{logger.h}!LOGP@{LOGP}}
+\index{LOGP@{LOGP}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOGP}{LOGP}}
+{\footnotesize\ttfamily \#define L\+O\+GP(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (\mbox{\hyperlink{logger_8h_aa385268d3ec7b4d3ecceb7c787171bf0}{LOGGER}}) \{ \(\backslash\)}
+\DoxyCodeLine{            if (\mbox{\hyperlink{logger_8h_aa0d3fd3f5bc14b2d98c4ee59e8029d11}{LOGGER\_COLOR}}) \{ \(\backslash\)}
+\DoxyCodeLine{                if (isatty(STDERR\_FILENO)) \{ \(\backslash\)}
+\DoxyCodeLine{                    fprintf(stderr, \textcolor{stringliteral}{"\%s\%s\%s:\%d:\%s\%s()\%s: \%s"}, \(\backslash\)}
+\DoxyCodeLine{                            LOGGER\_COLOR\_RED, \_\_FILE\_\_, LOGGER\_COLOR\_RESET, \(\backslash\)}
+\DoxyCodeLine{                            \_\_LINE\_\_, \(\backslash\)}
+\DoxyCodeLine{                            LOGGER\_COLOR\_BLUE, \_\_func\_\_, LOGGER\_COLOR\_RESET, \(\backslash\)}
+\DoxyCodeLine{                            str); \(\backslash\)}
+\DoxyCodeLine{                    break; \(\backslash\)}
+\DoxyCodeLine{                \} \(\backslash\)}
+\DoxyCodeLine{                fprintf(stderr, \textcolor{stringliteral}{"\%s:\%d:\%s(): \%s"}, \(\backslash\)}
+\DoxyCodeLine{                        \_\_FILE\_\_, \_\_LINE\_\_, \_\_func\_\_, str); \(\backslash\)}
+\DoxyCodeLine{            \} \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+Prints an unformatted log message (single string).
+
+Example Usage\+: L\+O\+GP(\char`\"{}\+Hello world!\char`\"{}); 

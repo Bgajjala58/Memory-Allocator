@@ -1,0 +1,55 @@
+\hypertarget{allocator_8h}{}\doxysection{allocator.\+h File Reference}
+\label{allocator_8h}\index{allocator.h@{allocator.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmem__block}{mem\+\_\+block}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{allocator_8h_a512132f6d325316860cc6ac6bf0a366c}\label{allocator_8h_a512132f6d325316860cc6ac6bf0a366c}} 
+void $\ast$ {\bfseries reuse} (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{allocator_8h_a705cf126d7f7ced624d5468d7a9f1263}\label{allocator_8h_a705cf126d7f7ced624d5468d7a9f1263}} 
+void $\ast$ {\bfseries first\+\_\+fit} (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{allocator_8h_af1340cc058cdaf27a9e9e803a09c79f8}\label{allocator_8h_af1340cc058cdaf27a9e9e803a09c79f8}} 
+void $\ast$ {\bfseries worst\+\_\+fit} (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{allocator_8h_a5259c7e999782791fdf8cd217458e255}\label{allocator_8h_a5259c7e999782791fdf8cd217458e255}} 
+void $\ast$ {\bfseries best\+\_\+fit} (size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{allocator_8h_a16e4f54f08fa2ef1574b413d64a94d44}{print\+\_\+memory}} (void)
+\item 
+\mbox{\Hypertarget{allocator_8h_a7ac38fce3243a7dcf448301ee9ffd392}\label{allocator_8h_a7ac38fce3243a7dcf448301ee9ffd392}} 
+void $\ast$ {\bfseries malloc} (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{allocator_8h_aec0d19cf0c75e35fef6e0c1248dc781e}\label{allocator_8h_aec0d19cf0c75e35fef6e0c1248dc781e}} 
+void $\ast$ {\bfseries malloc\+\_\+name} (size\+\_\+t size, char $\ast$name)
+\item 
+\mbox{\Hypertarget{allocator_8h_afbedc913aa4651b3c3b4b3aecd9b4711}\label{allocator_8h_afbedc913aa4651b3c3b4b3aecd9b4711}} 
+void {\bfseries free} (void $\ast$ptr)
+\item 
+\mbox{\Hypertarget{allocator_8h_a62b7798461bd461da64c5f9d35feddf7}\label{allocator_8h_a62b7798461bd461da64c5f9d35feddf7}} 
+void $\ast$ {\bfseries calloc} (size\+\_\+t nmemb, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{allocator_8h_a1a6b5e8d2f1c37e5b43e4345586075be}\label{allocator_8h_a1a6b5e8d2f1c37e5b43e4345586075be}} 
+void $\ast$ {\bfseries realloc} (void $\ast$ptr, size\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function prototypes and globals for our memory allocator implementation. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{allocator_8h_a16e4f54f08fa2ef1574b413d64a94d44}\label{allocator_8h_a16e4f54f08fa2ef1574b413d64a94d44}} 
+\index{allocator.h@{allocator.h}!print\_memory@{print\_memory}}
+\index{print\_memory@{print\_memory}!allocator.h@{allocator.h}}
+\doxysubsubsection{\texorpdfstring{print\_memory()}{print\_memory()}}
+{\footnotesize\ttfamily void print\+\_\+memory (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+print\+\_\+memory
+
+Prints out the current memory state, including both the regions and blocks. Entries are printed in order, so there is an implied link from the topmost entry to the next, and so on. 

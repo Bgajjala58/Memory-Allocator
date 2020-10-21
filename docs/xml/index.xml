@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="structmem__block" kind="struct"><name>mem_block</name>
+    <member refid="structmem__block_1ad42de1b76cc0aa74440d25db29ac647d" kind="variable"><name>alloc_id</name></member>
+    <member refid="structmem__block_1a4b0bf81628ebd136cc6d4a33c2dc1fcf" kind="variable"><name>name</name></member>
+    <member refid="structmem__block_1a5ff4ee5dcd970bbc4951eb108c5eec4b" kind="variable"><name>size</name></member>
+    <member refid="structmem__block_1a9584a3091a545d69554c90af09a537f9" kind="variable"><name>usage</name></member>
+    <member refid="structmem__block_1a13488653e52b16c20a2236a540e2f0cc" kind="variable"><name>region_start</name></member>
+    <member refid="structmem__block_1a9363cab5adbbfa3e4655a226262be3f9" kind="variable"><name>region_size</name></member>
+    <member refid="structmem__block_1a6bc667eb00ed1bb2d18b4074a69d7cf4" kind="variable"><name>next</name></member>
+    <member refid="structmem__block_1a393b621f6ab6c59fa0061204b5011002" kind="variable"><name>padding</name></member>
+  </compound>
+  <compound refid="allocator_8c" kind="file"><name>allocator.c</name>
+    <member refid="allocator_8c_1af53cbb9b42037c8fdbbd933b88633b84" kind="variable"><name>g_head</name></member>
+    <member refid="allocator_8c_1a3573b9ffe57e009ac9af92b356d9a440" kind="variable"><name>g_allocations</name></member>
+    <member refid="allocator_8c_1a2420ed5f3bdd6b79a569bf108451f603" kind="variable"><name>alloc_mutex</name></member>
+    <member refid="allocator_8c_1a705cf126d7f7ced624d5468d7a9f1263" kind="function"><name>first_fit</name></member>
+    <member refid="allocator_8c_1a512132f6d325316860cc6ac6bf0a366c" kind="function"><name>reuse</name></member>
+    <member refid="allocator_8c_1af1340cc058cdaf27a9e9e803a09c79f8" kind="function"><name>worst_fit</name></member>
+    <member refid="allocator_8c_1a5259c7e999782791fdf8cd217458e255" kind="function"><name>best_fit</name></member>
+    <member refid="allocator_8c_1aec0d19cf0c75e35fef6e0c1248dc781e" kind="function"><name>malloc_name</name></member>
+    <member refid="allocator_8c_1a7ac38fce3243a7dcf448301ee9ffd392" kind="function"><name>malloc</name></member>
+    <member refid="allocator_8c_1afbedc913aa4651b3c3b4b3aecd9b4711" kind="function"><name>free</name></member>
+    <member refid="allocator_8c_1a62b7798461bd461da64c5f9d35feddf7" kind="function"><name>calloc</name></member>
+    <member refid="allocator_8c_1a1a6b5e8d2f1c37e5b43e4345586075be" kind="function"><name>realloc</name></member>
+    <member refid="allocator_8c_1a16e4f54f08fa2ef1574b413d64a94d44" kind="function"><name>print_memory</name></member>
+  </compound>
+  <compound refid="allocator_8h" kind="file"><name>allocator.h</name>
+    <member refid="allocator_8h_1a512132f6d325316860cc6ac6bf0a366c" kind="function"><name>reuse</name></member>
+    <member refid="allocator_8h_1a705cf126d7f7ced624d5468d7a9f1263" kind="function"><name>first_fit</name></member>
+    <member refid="allocator_8h_1af1340cc058cdaf27a9e9e803a09c79f8" kind="function"><name>worst_fit</name></member>
+    <member refid="allocator_8h_1a5259c7e999782791fdf8cd217458e255" kind="function"><name>best_fit</name></member>
+    <member refid="allocator_8h_1a16e4f54f08fa2ef1574b413d64a94d44" kind="function"><name>print_memory</name></member>
+    <member refid="allocator_8h_1a7ac38fce3243a7dcf448301ee9ffd392" kind="function"><name>malloc</name></member>
+    <member refid="allocator_8h_1aec0d19cf0c75e35fef6e0c1248dc781e" kind="function"><name>malloc_name</name></member>
+    <member refid="allocator_8h_1afbedc913aa4651b3c3b4b3aecd9b4711" kind="function"><name>free</name></member>
+    <member refid="allocator_8h_1a62b7798461bd461da64c5f9d35feddf7" kind="function"><name>calloc</name></member>
+    <member refid="allocator_8h_1a1a6b5e8d2f1c37e5b43e4345586075be" kind="function"><name>realloc</name></member>
+  </compound>
+  <compound refid="logger_8h" kind="file"><name>logger.h</name>
+    <member refid="logger_8h_1aa385268d3ec7b4d3ecceb7c787171bf0" kind="define"><name>LOGGER</name></member>
+    <member refid="logger_8h_1aa0d3fd3f5bc14b2d98c4ee59e8029d11" kind="define"><name>LOGGER_COLOR</name></member>
+    <member refid="logger_8h_1a9c0a761d7fcefcef9849ce0e3900d962" kind="define"><name>LOGGER_COLOR_RED</name></member>
+    <member refid="logger_8h_1a8dd5be6eedc6989bdfe0c3d75715600f" kind="define"><name>LOGGER_COLOR_BLUE</name></member>
+    <member refid="logger_8h_1a011fa8043c2689f76dad72c2c6eb31b6" kind="define"><name>LOGGER_COLOR_RESET</name></member>
+    <member refid="logger_8h_1ac60a33fb6244dfed75a5aaab504b8968" kind="define"><name>LOGP</name></member>
+    <member refid="logger_8h_1a388edf12256bf73c3a8ee9734c3bd841" kind="define"><name>LOG</name></member>
+  </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>
