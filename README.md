@@ -35,17 +35,7 @@ $ LD_PRELOAD=./allocator.so ls
 allocator.c  allocator.h  allocator.h.gch  allocator.so  a.out  docs  liballocator.so  logger.h  logger.h.gch  Makefile  README.md  tests
 ```
 
-## Testing and Logging
+## Logging
 
-There are a set of test cases provided. To use and test with these cases:
 By default logging is turned off. In order to turn on change option in Makefile.
-```
-# Run all test cases:
-make test
 
-# Clean test cases:
-make testclean
-
-# Clean complied files:
-make clean
-```
